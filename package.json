@@ -1,0 +1,11 @@
+{
+  "name": "primes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "clj -M -m cljs.main --target node --output-to main.js -c hello-world.core && node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
