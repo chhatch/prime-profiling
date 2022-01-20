@@ -1,1 +1,1 @@
-{:output-dir ".cljs_node_repl", :target :nodejs, :output-to "main.js", :main hello-world.core, :aot-cache true}
+{:output-dir ".cljs_node_repl", :target :nodejs, :output-to "main.js", :main get-primes.core, :aot-cache true}

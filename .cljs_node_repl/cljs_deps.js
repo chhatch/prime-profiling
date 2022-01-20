@@ -38,5 +38,5 @@ goog.addDependency("string/stringbuffer.js", ['goog.string.StringBuffer'], []);
 goog.addDependency("math/long.js", ['goog.math.Long'], ['goog.asserts', 'goog.reflect']);
 goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.Uri', 'goog.object', 'goog.math.Integer', 'goog.string.StringBuffer', 'goog.array', 'goog.math.Long']);
 goog.addDependency("../nodejs.js", ['cljs.nodejs'], ['cljs.core']);
-goog.addDependency("../hello_world/core.js", ['hello_world.core'], ['cljs.core']);
+goog.addDependency("../get_primes/core.js", ['get_primes.core'], ['cljs.core']);
 goog.addDependency("../nodejscli.js", ['cljs.nodejscli'], ['cljs.core', 'goog.object', 'cljs.nodejs']);

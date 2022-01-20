@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "clj -M -m cljs.main --target node --output-to main.js -c hello-world.core && node main.js"
+    "start": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core && node main.js"
   },
   "author": "",
   "license": "ISC"
