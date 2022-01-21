@@ -1,14 +1,13 @@
 (ns get-primes.core)
 
-(defn debug [msg]
-  (fn [x] (println msg x)
-  x))
-
 (defn isPrime [n]
-  ((debug "isPrime Outer") n)
-  (reduce (fn [bool, m] (if (= (mod n m) 0) false true)) false (range 0 (js/Math.sqrt n))))
+  (loop [n n m 2 max (js/Math.sqrt n)]
+    (if (= (mod n m) 0) false
+      (if (> m max) true (recur n (inc m) max)))))
 
 (defn getPrimes [start end]
-  (reduce (fn [primeList, n] (-> n ((debug "main")) isPrime (#(if % (conj primeList n) primeList)) reverse)) () (range start end)))
+  (reduce (fn [primeList, n]
+      (-> n isPrime (#(if % (conj primeList n) primeList)) reverse))
+    () (range start end)))
 
-(println (getPrimes 0 10))
+(time (println (count (getPrimes 2 100000)) "primes found"))
