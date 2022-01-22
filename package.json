@@ -4,8 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core && node main.js"
+    "start": "npm run build && node main.js",
+    "build": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "clinic": "^11.0.0"
+  }
 }
