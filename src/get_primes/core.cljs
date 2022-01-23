@@ -4,16 +4,18 @@
 ;; We'll request to send `profile` stats to `println`:
 (tufte/add-basic-println-handler! {})
 
-(defn isPrime [n] (p ::isP
- (let [rootN  (p ::isP_calc-root (Math/floor (Math/sqrt n)))]
-    (p ::isP_reduce (reduce (fn [bool, m]
-      (p ::isP_reduce_fn (if (p ::isP_reduce_fn_check-mod-0 (= (mod n m) 0)) (p ::isP_reduce_fn_mod-0 (reduced false)) (p ::isP_reduce_fn_not-mod-0 true))))
-      true (p ::isP_reduce_create-range (range 2 rootN)))))))
+(defn isPrime [n, rootN]
+  (loop [m 2 relativePrime (not= (mod n 2) 0) continue (< 2 rootN)]
+    (if continue
+      (if relativePrime
+        (recur (inc m) (not= (mod n (inc m)) 0) (< (inc m) rootN))
+        false)
+      relativePrime)))
 
 (defn getPrimes [start end]
-  (p ::getPrimes
-    (reduce (fn [primeList, n]
-        (-> n isPrime (#(if % (conj primeList n) primeList))))
-    () (range start end))))
+    (loop [n start primeList ()]
+        (if (> n end) primeList
+          (recur (inc n) (if (isPrime n (Math/floor (Math/sqrt n))) (conj primeList n)
+          primeList)))))
 
-(time (println (count (profile {} (getPrimes 2 1e7))) "primes found"))
+(time (println (count (profile {} (getPrimes 2 1e4))) "primes found"))
