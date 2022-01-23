@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "npm run build && node main.js",
+    "start": "node main.js",
+    "build-start": "npm run build && npm run start",
     "build": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core"
   },
   "author": "",
