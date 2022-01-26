@@ -4,11 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core",
     "start": "node main.js",
-    "build-start": "npm run build && npm run start",
-    "build": "clj -M -m cljs.main --target node --output-to main.js -c get-primes.core"
+    "flame": "npx clinic flame -- node main.js",
+    "profile": "node --prof main.js",
+    "build-start": "npm run build && npm run start"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "clinic": "^11.0.0"
+  }
 }

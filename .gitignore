@@ -132,3 +132,7 @@ dist
 # clojurescript
 .cljs_node_repl/
 .cpcache/
+
+# clinic
+.clinic
+processed.txt
