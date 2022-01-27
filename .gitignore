@@ -136,3 +136,8 @@ dist
 # clinic
 .clinic
 processed.txt
+
+.DS_Store
+.lsp/
+.clj-kondo/
+.lsp/.cache/data.mdb

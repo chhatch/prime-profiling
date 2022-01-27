@@ -6,22 +6,12 @@
 (defn isRelativePrime [n m]
   (not= (mod n m) 0))
 
-(defn shouldContinue [m rootN]
-  (< m rootN))
-
-(defn isPrime [n]
-  (let [rootN (int (Math/sqrt n))]
-    (loop [m 2]
-      (if (shouldContinue m rootN)
-        (if (isRelativePrime n m)
-          (recur (inc m))
-          false)
-        relativePrime))))
+(defn isPrime? [n]
+  (reduce (defn fn [_ m]
+    (if (isRelativePrime n m) true (reduced false)))
+    true (range 2 (inc (int (Math/sqrt n))))))
 
 (defn getPrimes [start end]
-    (loop [n start primeList ()]
-        (if (> n end) primeList
-          (recur (inc n) (if (isPrime n) (conj primeList n)
-          primeList)))))
+    (for [n (range start end) :when (isPrime? n)] n))
 
 (time (println (count (getPrimes 2 1e6)) "primes found"))
